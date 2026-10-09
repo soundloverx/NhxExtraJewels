@@ -1,0 +1,341 @@
+Add Slash Damage:
+  slot: ['weapon', 'elementalmagic', 'bow', 'crossbow']
+  gem: peridot
+  power:
+    power: [3, 6, 9]
+    chance: [30, 45, 55]
+Add Chop Damage:
+  slot: tool
+  gem: peridot
+  power:
+    power: [6, 9, 12]
+    chance: [30, 45, 55]
+Coin Hoarder:
+  slot: cloak
+  gem: peridot
+  power: [1, 2.5, 5]
+Coin Greed:
+  slot: utility
+  gem: peridot
+  power:
+    power: [5, 10, 20]
+    chance: [5, 10, 15]
+Slash Resistance:
+  slot: chest
+  gem: peridot
+  power: [1, 3, 5]
+Expert Acrobat:
+  slot: legs
+  gem: peridot
+  power: [5, 7, 12]
+Expert Daggers:
+  slot: head
+  gem: peridot
+  power: [5, 7, 12]
+Staggering Block:
+  slot: shield
+  gem: peridot
+  power: [3, 5, 7]
+Toxifier:
+  slot: trinket
+  gem: peridot
+  power:
+    power: [1, 2, 3]
+    distance: [5, 7, 10]
+Blunt Resistance:
+  slot: legs
+  gem: tigerseye
+  power: [1, 3, 5]
+Expert Smasher:
+  slot: chest
+  gem: tigerseye
+  power: [5, 7, 12]
+Add Blunt Damage:
+  slot: ['weapon', 'elementalmagic', 'bow', 'crossbow']
+  gem: tigerseye
+  power:
+    power: [3, 6, 9]
+    chance: [30, 45, 55]
+Expert Spearmaiden:
+  slot: cloak
+  gem: tigerseye
+  power: [5, 7, 12]
+Block Reduce Stamina:
+  slot: shield
+  gem: tigerseye
+  power: [10, 15, 20]
+Weapon Reduced Stamina:
+  slot: utility
+  gem: tigerseye
+  power: [5, 10, 15]
+Increase Stamina Regen:
+  slot: head
+  gem: tigerseye
+  power: [9, 18, 27]
+Farmer:
+  slot: tool
+  gem: tigerseye
+  power:
+    power: [1, 2, 3]
+    chance: [15, 25, 35]
+    pickup: [1, 2, 3]
+Adrenal Rewire:
+  slot: trinket
+  gem: tigerseye
+  power:
+    power: [3, 6, 9]
+    chance: [10, 15, 20]
+Pierce Resistance:
+  slot: chest
+  gem: turquoise
+  power: [1, 3, 5]
+Expert Sprinter:
+  slot: head
+  gem: turquoise
+  power: [5, 7, 12]
+Add Pierce Damage:
+  slot: ['weapon', 'elementalmagic', 'bow', 'crossbow']
+  gem: turquoise
+  power:
+    power: [3, 6, 9]
+    chance: [30, 45, 55]
+Water Swiftness:
+  slot: legs
+  gem: turquoise
+  power: [1, 3, 5]
+Water Frenzy:
+  slot: utility
+  gem: turquoise
+  power: [6, 9, 18]
+Freezing Guard:
+  slot: shield
+  gem: turquoise
+  power:
+    power: [7, 14, 21]
+    chance: [14, 21, 28]
+Wet Worker:
+  slot: tool
+  gem: turquoise
+  power: [10, 20, 30]
+Water Resistant:
+  slot: cloak
+  gem: turquoise
+  power: [15, 30, 60]
+Soaked Fury:
+  slot: trinket
+  gem: turquoise
+  power: [5, 10, 15]
+Fire Resistance:
+  slot: legs
+  gem: rhodolite
+  power: [1, 3, 5]
+Expert Axemaster:
+  slot: chest
+  gem: rhodolite
+  power: [5, 7, 12]
+Expert Mage:
+  slot: head
+  gem: rhodolite
+  power: [5, 7, 12]
+Inferno:
+  slot: ['weapon', 'elementalmagic', 'bow', 'crossbow']
+  gem: rhodolite
+  power:
+    power: [20, 40, 60]
+    chance: [5, 10, 15]
+Add Pickaxe Damage:
+  slot: tool
+  gem: rhodolite
+  power:
+    power: [6, 9, 12]
+    chance: [30, 45, 55]
+Burning Frenzy:
+  slot: utility
+  gem: rhodolite
+  power: [6, 9, 18]
+Burning Viking:
+  slot: cloak
+  gem: rhodolite
+  power: [5, 15, 30]
+Burning Guard:
+  slot: shield
+  gem: rhodolite
+  power:
+    power: [5, 10, 15]
+    chance: [20, 30, 40]
+Burning Adrenaline:
+  slot: trinket
+  gem: rhodolite
+  power: [5, 10, 15]
+Add Lightning Damage:
+  slot: ['weapon', 'elementalmagic', 'bow', 'crossbow']
+  gem: moonstone
+  power:
+    power: [6, 9, 12]
+    chance: [30, 45, 55]
+Expert Fisher:
+  slot: head
+  gem: moonstone
+  power: [5, 7, 12]
+Expert Harvester:
+  slot: tool
+  gem: moonstone
+  power: [5, 7, 12]
+Expert Polearms:
+  slot: chest
+  gem: moonstone
+  power: [5, 7, 12]
+Reduce Weight:
+  slot: utility
+  gem: moonstone
+  power: [2, 4, 6]
+Lightning Resistance:
+  slot: legs
+  gem: moonstone
+  power: [1, 3, 5]
+Cover of Darkness:
+  slot: cloak
+  gem: moonstone
+  power:
+    power: [10, 15, 30]
+    chance: [10, 12, 15]
+    Max Count: [2, 4, 6]
+Retribution:
+  slot: shield
+  gem: moonstone
+  power:
+    power: [30, 45, 55]
+    chance: [15, 25, 35]
+Harvest Adrenaline:
+  slot: trinket
+  gem: moonstone
+  power:
+    power: [3, 6, 9]
+    chance: [7, 14, 25]
+Add Spirit Damage:
+  slot: ['weapon', 'elementalmagic', 'bow', 'crossbow']
+  gem: tanzanite
+  power:
+    power: [9, 12, 18]
+    chance: [30, 45, 55]
+Expert Swordsman:
+  slot: chest
+  gem: tanzanite
+  power: [5, 7, 12]
+Increase Stamina:
+  slot: utility
+  gem: tanzanite
+  power: [6, 9, 15]
+Increase Eitr:
+  slot: head
+  gem: tanzanite
+  power: [6, 9, 15]
+Expert Brawler:
+  slot: legs
+  gem: tanzanite
+  power: [5, 7, 12]
+Poison Resistance:
+  slot: cloak
+  gem: tanzanite
+  power: [1, 3, 5]
+Eitr Conversion:
+  slot: shield
+  gem: tanzanite
+  power:
+    power: [2, 4, 6]
+    chance: [20, 30, 40]
+Eitr Fused:
+  slot: tool
+  gem: tanzanite
+  power:
+    power: [10, 20, 30]
+    cost: [2, 4, 6]
+Eitr Feedback:
+  slot: trinket
+  gem: tanzanite
+  power:
+    power: [3, 5, 7]
+    chance: [7, 14, 22]
+gems:
+  meadows:
+    turquoise: 0.1
+    tigerseye: 0.1
+    peridot: 0.3
+    tanzanite: 0.0
+    moonstone: 0.0
+  black forest:
+    peridot: 0.1
+    rhodolite: 0.1
+    moonstone: 0.1
+    tanzanite: 0.0
+    tigerseye: 0.0
+  swamp:
+    tigerseye: 0.1
+    rhodolite: 0.1
+    moonstone: 0.1
+    peridot: 0.0
+    tanzanite: 0.1
+    turquoise: 0.2
+  mountain:
+    turquoise: 0.3
+    peridot: 0.1
+    tanzanite: 0.1
+    moonstone: 0.2
+    tigerseye: 0.0
+  plains:
+    tigerseye: 0.3
+    rhodolite: 0.2
+    moonstone: 0.1
+    peridot: 0.0
+    tanzanite: 0.1
+    turquoise: 0.0
+  mistlands:
+    turquoise: 0.2
+    tanzanite: 0.3
+    moonstone: 0.2
+    peridot: 0.0
+    tigerseye: 0.0
+  ash lands:
+    tanzanite: 0.2
+    rhodolite: 0.3
+    moonstone: 0.1
+    peridot: 0.0
+    tigerseye: 0.0
+# Synergy names double as localization keys: Jewelcrafting looks up
+# jc_synergy_condition_<name with spaces replaced by underscores>. Valheim ends a $token at any of
+# " (){}[]+-!?/\&%,.:-=<>" so these names must stay plain words and digits, or the lookup breaks.
+equal moonstone and tanzanite above three:
+  conditions:
+    - moonstone > 3
+    - tanzanite > 3
+    - moonstone = tanzanite
+  effect:
+    Combat Spirit: 40
+at least seven rhodolites:
+  conditions:
+    - rhodolite > 6
+  effect:
+    Intense Fire: 25
+exactly six tigerseye and six peridot:
+  conditions:
+    - tigerseye = 6
+    - peridot = 6
+  effect:
+    Weapon Master: 15
+at least six turquoise:
+  conditions:
+    - turquoise > 5
+  effect:
+    Slippery When Wet: 35
+at least thirteen turquoise:
+  conditions:
+    - turquoise > 12
+  effect:
+    Waterproof: 1
+nine tanzanite six moonstone and three tigerseye:
+  conditions:
+    - tanzanite > 8
+    - moonstone > 5
+    - tigerseye > 2
+  effect:
+    Spellsword: 45

@@ -1,0 +1,11 @@
+{
+  "name": "NhxExtraJewels",
+  "version_number": "1.0.0",
+  "website_url": "",
+  "description": "Private mod: six extra Jewelcrafting gems with their own effects and synergies, a port of EpicJewels with renamed and recolored gems. Not published on Thunderstore.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2202",
+    "ValheimModding-Jotunn-2.30.2",
+    "Smoothbrain-Jewelcrafting-2.0.11"
+  ]
+}

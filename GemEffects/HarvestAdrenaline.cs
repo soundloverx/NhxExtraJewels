@@ -1,0 +1,70 @@
+using NhxExtraJewels.Common;
+using NhxExtraJewels.EffectHelpers;
+using HarmonyLib;
+using JetBrains.Annotations;
+using Jewelcrafting;
+
+namespace NhxExtraJewels.GemEffects {
+    internal class HarvestAdrenaline {
+        [PublicAPI]
+        public struct Config {
+            [InverseMultiplicativePercentagePower] public float Power;
+            [InverseMultiplicativePercentagePower] public float Chance;
+        }
+
+        public static void AddadrenalineForHarvest(HitData hit) {
+            if ((hit.m_damage.m_chop > 0 || hit.m_damage.m_pickaxe > 0) && hit.GetAttacker() is Player) {
+                float randomValue = UnityEngine.Random.Range(0f, 100f);
+                Player attacker = hit.GetAttacker() as Player;
+                // Succeeds chance roll
+                if (randomValue <= attacker.GetEffectPower<Config>("Harvest Adrenaline").Chance) {
+                    float totaldmg = hit.m_damage.GetTotalDamageOptions(include_pickaxe_and_chop: true);
+                    float power = attacker.GetEffectPower<Config>("Harvest Adrenaline").Power;
+                    float amount = totaldmg * (power / 100f);
+                    ModLog.LogDebug($"Harvest Adrenaline is restoring {amount} adrenaline based on total damage of {totaldmg} and power of {power}");
+                    // These are RPC handlers running on the harvestable's ZDO owner, which is often
+                    // not the attacker's client. Mirror vanilla (Character.OnStagger) and route the
+                    // gain through an RPC when we do not own the attacker.
+                    if (attacker.IsOwner()) {
+                        attacker.AddAdrenaline(amount);
+                    } else {
+                        attacker.m_nview.InvokeRPC("RPC_AddAdrenaline", amount);
+                    }
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(Destructible), nameof(Destructible.RPC_Damage))]
+        public static class AdrenalineFromDestructibles {
+            public static void Postfix(HitData hit) { AddadrenalineForHarvest(hit); }
+        }
+
+        [HarmonyPatch(typeof(MineRock), nameof(MineRock.RPC_Hit))]
+        public static class AdrenalineFromMineRocks {
+            public static void Postfix(HitData hit) {
+                AddadrenalineForHarvest(hit);
+            }
+        }
+
+        [HarmonyPatch(typeof(MineRock5), nameof(MineRock5.RPC_Damage))]
+        public static class AdrenalineFromMineRocks5 {
+            public static void Postfix(HitData hit) {
+                AddadrenalineForHarvest(hit);
+            }
+        }
+
+        [HarmonyPatch(typeof(TreeBase), nameof(TreeBase.RPC_Damage))]
+        public static class AdrenalineFromTreeBase {
+            public static void Postfix(HitData hit) {
+                AddadrenalineForHarvest(hit);
+            }
+        }
+
+        [HarmonyPatch(typeof(TreeLog), nameof(TreeLog.RPC_Damage))]
+        public static class AdrenalineFromTreeLog {
+            public static void Postfix(HitData hit) {
+                AddadrenalineForHarvest(hit);
+            }
+        }
+    }
+}

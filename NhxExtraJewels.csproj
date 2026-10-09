@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BDCD0D6B-18DC-4EE2-A13F-D32843BC1A05}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NhxExtraJewels</RootNamespace>
+    <AssemblyName>NhxExtraJewels</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <!-- The Jewelcrafting API source (JewelcraftingAPI\) uses current C# syntax and nullable annotations -->
+    <LangVersion>latest</LangVersion>
+    <Nullable>annotations</Nullable>
+    <!-- The code reads private game members through the publicized assemblies. Unsafe makes the compiler add
+         SecurityPermission(SkipVerification), which tells Mono to skip access checks at runtime. EpicJewels declared
+         that permission itself (Properties\IgnoreAccessModifiers.cs), and Jewelcrafting and Jotunn have it too. -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Where the mod is installed, see CLAUDE.md -->
+    <HeavyModsPlugins>C:\Users\sound\AppData\Roaming\com.kesomannen.gale\valheim\profiles\HeavyMods\BepInEx\plugins</HeavyModsPlugins>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>obj\Debug\NhxExtraJewels\</OutputPath>
+    <!-- API compiles the Jewelcrafting API source as the stub that Jewelcrafting redirects to itself at runtime -->
+    <DefineConstants>DEBUG;TRACE;API</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>obj\Release\NhxExtraJewels\</OutputPath>
+    <DefineConstants>TRACE;API</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\bepinex_mod_libs\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_guiutils_publicized">
+      <HintPath>..\..\publicized_assemblies\1.0-release\assembly_guiutils_publicized.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_utils_publicized">
+      <HintPath>..\..\publicized_assemblies\1.0-release\assembly_utils_publicized.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_valheim_publicized">
+      <HintPath>..\..\publicized_assemblies\1.0-release\assembly_valheim_publicized.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>..\..\bepinex_mod_libs\BepInEx.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Jotunn">
+      <HintPath>$(HeavyModsPlugins)\ValheimModding-Jotunn\Jotunn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\netstandard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\valheim_mod_libraries\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\valheim_mod_libraries\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\valheim_mod_libraries\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\valheim_mod_libraries\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\valheim_mod_libraries\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ModLog.cs" />
+    <Compile Include="Common\ValConfig.cs" />
+    <Compile Include="EffectHelpers\AddDamageHarvestables.cs" />
+    <Compile Include="EffectHelpers\AddDamages.cs" />
+    <Compile Include="EffectHelpers\ItemDisplay.cs" />
+    <Compile Include="EffectHelpers\SkillIncrease.cs" />
+    <Compile Include="EffectHelpers\Summons.cs" />
+    <Compile Include="EffectHelpers\Utils.cs" />
+    <Compile Include="EffectList.cs" />
+    <Compile Include="GemEffects\AddBluntDamage.cs" />
+    <Compile Include="GemEffects\AddChopDamage.cs" />
+    <Compile Include="GemEffects\AddLightningDamage.cs" />
+    <Compile Include="GemEffects\AddPickaxeDamage.cs" />
+    <Compile Include="GemEffects\AddPierceDamage.cs" />
+    <Compile Include="GemEffects\AddSlashDamage.cs" />
+    <Compile Include="GemEffects\AddSpiritDamage.cs" />
+    <Compile Include="GemEffects\AdrenalRewire.cs" />
+    <Compile Include="GemEffects\BlockReduceStamina.cs" />
+    <Compile Include="GemEffects\BluntResistance.cs" />
+    <Compile Include="GemEffects\BurningAdrenaline.cs" />
+    <Compile Include="GemEffects\BurningFrenzy.cs" />
+    <Compile Include="GemEffects\BurningViking.cs" />
+    <Compile Include="GemEffects\CoinGreed.cs" />
+    <Compile Include="GemEffects\CoinHoarder.cs" />
+    <Compile Include="GemEffects\CombatSpirit.cs" />
+    <Compile Include="GemEffects\CoverOfDarkness.cs" />
+    <Compile Include="GemEffects\EitrConversion.cs" />
+    <Compile Include="GemEffects\EitrFeedback.cs" />
+    <Compile Include="GemEffects\EitrFused.cs" />
+    <Compile Include="GemEffects\ExpertAcrobat.cs" />
+    <Compile Include="GemEffects\ExpertAxemaster.cs" />
+    <Compile Include="GemEffects\ExpertBrawler.cs" />
+    <Compile Include="GemEffects\ExpertDaggers.cs" />
+    <Compile Include="GemEffects\ExpertFisher.cs" />
+    <Compile Include="GemEffects\ExpertHarvester.cs" />
+    <Compile Include="GemEffects\ExpertMage.cs" />
+    <Compile Include="GemEffects\ExpertPolearms.cs" />
+    <Compile Include="GemEffects\ExpertSmasher.cs" />
+    <Compile Include="GemEffects\ExpertSpearmaiden.cs" />
+    <Compile Include="GemEffects\ExpertSprinter.cs" />
+    <Compile Include="GemEffects\ExpertSwordsman.cs" />
+    <Compile Include="GemEffects\Farmer.cs" />
+    <Compile Include="GemEffects\FireResistance.cs" />
+    <Compile Include="GemEffects\FlamingGuard.cs" />
+    <Compile Include="GemEffects\FreezingGuard.cs" />
+    <Compile Include="GemEffects\HarvestAdrenaline.cs" />
+    <Compile Include="GemEffects\IncreaseEitr.cs" />
+    <Compile Include="GemEffects\IncreaseStamina.cs" />
+    <Compile Include="GemEffects\IncreaseStaminaRegen.cs" />
+    <Compile Include="GemEffects\Inferno.cs" />
+    <Compile Include="GemEffects\IntenseFire.cs" />
+    <Compile Include="GemEffects\LightningResistance.cs" />
+    <Compile Include="GemEffects\PierceResistance.cs" />
+    <Compile Include="GemEffects\PoisonResistance.cs" />
+    <Compile Include="GemEffects\ReduceWeight.cs" />
+    <Compile Include="GemEffects\Retribution.cs" />
+    <Compile Include="GemEffects\SlashResistance.cs" />
+    <Compile Include="GemEffects\SlipperyWhenWet.cs" />
+    <Compile Include="GemEffects\SoakedFury.cs" />
+    <Compile Include="GemEffects\Spellsword.cs" />
+    <Compile Include="GemEffects\StaggeringBlock.cs" />
+    <Compile Include="GemEffects\Toxifier.cs" />
+    <Compile Include="GemEffects\WaterFrenzy.cs" />
+    <Compile Include="GemEffects\WaterResistant.cs" />
+    <Compile Include="GemEffects\WaterSwiftness.cs" />
+    <Compile Include="GemEffects\Waterproof.cs" />
+    <Compile Include="GemEffects\WeaponMaster.cs" />
+    <Compile Include="GemEffects\WeaponReducedStamina.cs" />
+    <Compile Include="GemEffects\WetWorker.cs" />
+    <Compile Include="GemResources.cs" />
+    <Compile Include="JewelcraftingAPI\API.cs" />
+    <Compile Include="JewelcraftingAPI\PowerAttribute.cs" />
+    <Compile Include="JewelcraftingAPI\Visual.cs" />
+    <Compile Include="JewelcraftingAPI\VisualEffectCondition.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\epicjewels" />
+    <EmbeddedResource Include="Assets\ExtraJewelsConfig.yaml" />
+    <EmbeddedResource Include="Localizations\English.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CHANGELOG.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="manifest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="README.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
