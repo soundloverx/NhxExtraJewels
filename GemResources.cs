@@ -34,13 +34,30 @@ namespace NhxExtraJewels
             new GemDefinition() { Type = "Tanzanite", ColorName = "tanzanite", Color = new Color(0.45f, 0.25f, 0.95f, 1f) },
         };
 
+        static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
+
         public static void AddGems()
         {
             foreach (GemDefinition gem in GemDefinitions) {
-                API.AddGems(gem.Type, gem.ColorName, gem.Color);
+                // The same steps as API.AddGems(type, colorName, color), which doesn't return the formation
+                API.AddShardFromTemplate(gem.Type, gem.ColorName, gem.Color);
+                API.AddAndRegisterUncutFromTemplate(gem.Type, gem.ColorName, gem.Color);
+                GameObject formation = API.AddDestructibleFromTemplate(gem.Type, gem.ColorName, gem.Color);
+                API.AddTieredGemFromTemplate(gem.Type, gem.ColorName, gem.Color);
+                TintFormationGlow(formation, gem.Color);
             }
 
             API.AddGemConfig(Plugin.LoadEmbeddedAssetToString("ExtraJewelsConfig.yaml"));
+        }
+
+        // Jewelcrafting sets both the color and the glow (_EmissionColor) of its gem items to the gem color, but on the
+        // formation only the color. The formation keeps its template's gray glow, which washes it out to a much paler
+        // shade than the gems it drops. Give it the same glow as the items.
+        static void TintFormationGlow(GameObject formation, Color color)
+        {
+            foreach (MeshRenderer renderer in formation.transform.Find("collider").GetComponentsInChildren<MeshRenderer>()) {
+                renderer.material.SetColor(EmissionColor, color);
+            }
         }
     }
 }

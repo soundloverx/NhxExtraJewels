@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.1
+- Gem formations in the world now glow in the gem's color, so they're the same color as the gems they drop. Jewelcrafting left their glow gray, which made them much paler
+
 ## v1.0.0
 - Port of EpicJewels 1.1.2 with the same gem effects, synergies, power values and biome spawn rates
 - Gems renamed and recolored so they can't be confused with vanilla or Jewelcrafting gems: Jade → Peridot, Amber → Tiger's Eye, Aquamarine → Turquoise, Garnet → Rhodolite, Opal → Moonstone, Amethyst → Tanzanite
